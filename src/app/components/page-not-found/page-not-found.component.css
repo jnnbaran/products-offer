@@ -1,5 +1,4 @@
 .content {
-  background: linear-gradient(90deg, #ffffff, #f8d1d1, #f6c3c3, #ffc1c1);
   font-size: 50px;
   color: #000066;
   padding: 40px 20px 0px 20px;
@@ -12,13 +11,14 @@
   align-items: center;
   flex-direction: column;
 }
-.elomelo {
+
+.error-modal {
   padding: 50px;
   background-color: aliceblue;
   border-radius:30px;
 }
 
-.siemanko {
+.button--return {
   color: white;
   background-color: #d42027;
 }
