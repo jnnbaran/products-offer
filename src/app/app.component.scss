@@ -1,0 +1,8 @@
+@use 'devextreme/scss/widgets/material/colors' with ($color: 'blue', $mode: 'light');
+
+.content {
+  height: 100%;
+  background: linear-gradient(90deg, #ffffff, #b6e1f8, #77c9e7, #2397d5);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
