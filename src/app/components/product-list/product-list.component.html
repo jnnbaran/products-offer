@@ -27,14 +27,25 @@
          keyExpr="productId"
          (onFocusedRowChanged)="onFocusedRowChanged($event)"
        >
-         <dxi-column *ngFor="let column of columns" [dataField]="column"></dxi-column>
-         <dxi-column cellTemplate="releaseDate" dataField="lastReleaseDate"></dxi-column>
+         <dxi-column cellTemplate="productName" dataField="productName" caption="Nazwa produktu"></dxi-column>
+         <div *dxTemplate="let cellInfo of 'productName'">
+           <div>
+             {{cellInfo.value}}
+           </div>
+         </div>
+         <dxi-column cellTemplate="productNameDescription" dataField="productNameDescription" caption="Kategoria"></dxi-column>
+         <div *dxTemplate="let cellInfo of 'productNameDescription'">
+           <div>
+             {{cellInfo.value}}
+           </div>
+         </div>
+         <dxi-column cellTemplate="releaseDate" dataField="lastReleaseDate" caption="Data wydania"></dxi-column>
          <div *dxTemplate="let cellInfo of 'releaseDate'">
            <div>
              {{cellInfo.value | date: env.dateFormat}}
            </div>
          </div>
-         <dxi-column cellTemplate="limitTemplate" dataField="basePrice" [width]="120" ></dxi-column>
+         <dxi-column cellTemplate="limitTemplate" dataField="basePrice" [width]="150" caption="Cena podstawowa"></dxi-column>
          <div *dxTemplate="let cellInfo of 'limitTemplate'">
            <div [ngClass]="{'my-class': cellInfo.data.basePrice > 500, 'my-class-elo' : cellInfo.data.basePrice < 500 }">
              {{cellInfo.value | formatCurrency }}

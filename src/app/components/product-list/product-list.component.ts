@@ -32,7 +32,6 @@ import {FormatCurrencyPipe} from "../../pipes/format-currency.pipe";
 export class ProductListComponent implements OnInit {
   productSub: Subscription = new Subscription();
   products: Product[] = [];
-  columns = ['productName', 'productNameDescription'];
   hintMessage: string = "";
   displayListView: boolean = true;
   mediumScreenBreakpoint = 768;
