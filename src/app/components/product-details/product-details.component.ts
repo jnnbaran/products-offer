@@ -7,6 +7,7 @@ import {DxAccordionModule, DxButtonModule, DxDataGridModule, DxListModule} from 
 import {CurrencyPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {ProductsCardsComponent} from "../products-cards/products-cards.component";
 import DataSource from "devextreme/data/data_source";
+import {OsSupportComponent} from "./operating-system/os-support.component";
 
 
 @Component({
@@ -23,7 +24,8 @@ import DataSource from "devextreme/data/data_source";
     DxDataGridModule,
     RouterLink,
     NgIf,
-    RouterOutlet
+    RouterOutlet,
+    OsSupportComponent
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
