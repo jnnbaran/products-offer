@@ -1,0 +1,48 @@
+<div class="product-list-container">
+  <div class="product-list-content">
+      <div class="title">
+        <p>Aplikacje Wapro<span style="color: #d42027">ERP</span> </p>
+        <p>dostępne dla Twojej firmy</p>
+      </div>
+      <div class="switch">
+        <p>zmień widok</p>
+        <dx-switch
+          [value] = "displayListView"
+          [hint]="hintMessage"
+          (onValueChanged)="onValueChanged($event.value)"
+        >
+        </dx-switch>
+      </div>
+     <ng-template [ngIf]="!this.displayListView">
+       <app-products-cards [products]="products"></app-products-cards>
+     </ng-template>
+     <ng-template [ngIf]="this.displayListView">
+       <dx-data-grid
+         id="gridContainer"
+         [dataSource]="products"
+         [height]="700"
+         [showBorders]="true"
+         [showColumnLines]="false"
+         [showRowLines]="true"
+         [focusedRowEnabled]="true"
+         keyExpr="productId"
+         (onFocusedRowChanged)="onFocusedRowChanged($event)"
+       >
+         <dxi-column *ngFor="let column of columns" [dataField]="column"></dxi-column>
+         <dxi-column cellTemplate="releaseDate" dataField="lastReleaseDate"></dxi-column>
+         <div *dxTemplate="let cellInfo of 'releaseDate'">
+           <div>
+             {{cellInfo.value | date: env.dateFormat}}
+           </div>
+         </div>
+         <dxi-column cellTemplate="limitTemplate" dataField="basePrice" [width]="120" ></dxi-column>
+         <div *dxTemplate="let cellInfo of 'limitTemplate'">
+           <div [ngClass]="{'my-class': cellInfo.data.basePrice > 500, 'my-class-elo' : cellInfo.data.basePrice < 500 }">
+             {{cellInfo.value | currency}}
+           </div>
+         </div>
+         <dxo-paging [pageSize]="15"></dxo-paging>
+       </dx-data-grid>
+     </ng-template>
+  </div>
+</div>
