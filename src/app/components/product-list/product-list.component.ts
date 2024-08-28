@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ProductsService} from "../../products.service";
 import {Subscription, map, async, scan, tap} from "rxjs";
 import {DxDataGridModule, DxListModule, DxSwitchModule} from "devextreme-angular";
@@ -33,10 +33,16 @@ export class ProductListComponent implements OnInit {
   columns = ['productName', 'productNameDescription'];
   hintMessage: string = "";
   displayListView: boolean = true;
+  mediumScreenBreakpoint = 768;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.changeViewModeToMoreReadable((event.target as Window).innerWidth);
+  }
 
   constructor(private router: Router, private productService: ProductsService) {}
 
   ngOnInit(){
+    this.changeViewModeToMoreReadable(window.innerWidth);
     this.productSub = this.productService.getProducts()
       .subscribe(data => this.products = data);
   }
@@ -50,6 +56,12 @@ export class ProductListComponent implements OnInit {
     this.hintMessage = e ? "LIST" : "CARDS";
     this.displayListView = e;
     notify(`selected view: ${this.hintMessage}`);
+  }
+
+  private changeViewModeToMoreReadable(innerWidth: number) {
+    if (innerWidth < this.mediumScreenBreakpoint) {
+      this.displayListView = false;
+    }
   }
 
   protected readonly env = env;
