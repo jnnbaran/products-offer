@@ -57,13 +57,6 @@ color:white;
 
 }
 
-.product-cards-container {
-  grid-column: 2 / span 12;
-  display: grid;
-  grid-template-columns: repeat(12, minmax(auto, 60px));
-  grid-gap: 40px;
-}
-
 .product {
   grid-column-end: span 4;
   display: flex;

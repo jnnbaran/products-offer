@@ -118,7 +118,6 @@ export class ProductDetailsComponent implements OnInit{
     })
     this.productService.loadingStateChange.next(false);
     this.listOfProducts = listOfProducts;
-    console.log('required: ', this.listOfProducts)
   }
 
 }
