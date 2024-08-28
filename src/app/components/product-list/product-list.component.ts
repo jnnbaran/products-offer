@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 import notify from "devextreme/ui/notify";
 import {ProductsCardsComponent} from "../products-cards/products-cards.component";
 import { env } from "../../../env/env";
+import {FormatCurrencyPipe} from "../../pipes/format-currency.pipe";
 
 @Component({
   selector: 'app-product-list',
@@ -22,7 +23,8 @@ import { env } from "../../../env/env";
     NgClass,
     CurrencyPipe,
     ProductsCardsComponent,
-    DatePipe
+    DatePipe,
+    FormatCurrencyPipe
   ],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'

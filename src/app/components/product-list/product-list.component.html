@@ -37,7 +37,7 @@
          <dxi-column cellTemplate="limitTemplate" dataField="basePrice" [width]="120" ></dxi-column>
          <div *dxTemplate="let cellInfo of 'limitTemplate'">
            <div [ngClass]="{'my-class': cellInfo.data.basePrice > 500, 'my-class-elo' : cellInfo.data.basePrice < 500 }">
-             {{cellInfo.value | currency}}
+             {{cellInfo.value | formatCurrency }}
            </div>
          </div>
          <dxo-paging [pageSize]="15"></dxo-paging>
