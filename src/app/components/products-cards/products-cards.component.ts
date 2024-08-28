@@ -27,8 +27,8 @@ export class ProductsCardsComponent {
 
   setClass(index: number) {
   return this.products[index].basePrice > 500
-    ? 'product__price'
-    : 'eloszkoa'
+    ? 'product--price-orange'
+    : 'product--price-green'
   }
 
   protected readonly env = env;
