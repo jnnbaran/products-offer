@@ -1,0 +1,13 @@
+<div class="main">
+  <div class="product-cards-container">
+    <div *ngFor="let product of products; index as i;" class="product" (click)="openProduct(product.productId)">
+      <div class="product__title" >{{product.productName}} </div>
+      <div class="product__info">
+        {{product.productNameDescription}}
+      </div>
+      <div class="product__info">Data wydania: {{product.lastReleaseDate | date: env.dateFormat}}</div>
+      <div [ngClass]="setClass(i)"> {{product.basePrice | currency}}</div>
+    </div>
+  </div>
+</div>
+
