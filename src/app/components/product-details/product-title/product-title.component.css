@@ -6,6 +6,9 @@
   font-weight: bold;
 }
 
+.product-detail--title-red {
+  color: #d42027;
+}
 .product-name {
   margin-bottom: 10px;
 }

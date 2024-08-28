@@ -11,8 +11,4 @@ import {ProductListComponent} from "./components/product-list/product-list.compo
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'products-offer';
-  handleButton() {
-    console.log("siemanko")
-  };
 }

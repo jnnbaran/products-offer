@@ -27,7 +27,7 @@ import {FormatCurrencyPipe} from "../../pipes/format-currency.pipe";
     FormatCurrencyPipe
   ],
   templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.scss'
+  styleUrl: './product-list.component.css'
 })
 export class ProductListComponent implements OnInit {
   productSub: Subscription = new Subscription();
