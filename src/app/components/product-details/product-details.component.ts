@@ -9,6 +9,7 @@ import {ProductsCardsComponent} from "../products-cards/products-cards.component
 import DataSource from "devextreme/data/data_source";
 import {OsSupportComponent} from "./operating-system/os-support.component";
 import {ProductDescriptionComponent} from "./product-description/product-description.component";
+import {ProductTitleComponent} from "./product-title/product-title.component";
 
 
 @Component({
@@ -27,7 +28,8 @@ import {ProductDescriptionComponent} from "./product-description/product-descrip
     NgIf,
     RouterOutlet,
     OsSupportComponent,
-    ProductDescriptionComponent
+    ProductDescriptionComponent,
+    ProductTitleComponent
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
@@ -61,8 +63,8 @@ export class ProductDetailsComponent implements OnInit{
     this.procutSub = this.productService.getProduct(id).pipe(
       tap(data => console.log(data)),
       map(data => {
-        this.selectedProduct = data,
-          this.productName = data.productName.split(' ');
+        this.selectedProduct = data
+
       }),
     )
       .subscribe()
