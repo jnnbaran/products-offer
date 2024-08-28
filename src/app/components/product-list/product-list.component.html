@@ -47,7 +47,7 @@
          </div>
          <dxi-column cellTemplate="limitTemplate" dataField="basePrice" [width]="150" caption="Cena podstawowa"></dxi-column>
          <div *dxTemplate="let cellInfo of 'limitTemplate'">
-           <div [ngClass]="{'my-class': cellInfo.data.basePrice > 500, 'my-class-elo' : cellInfo.data.basePrice < 500 }">
+           <div [ngClass]="{'product-price--orange': cellInfo.data.basePrice > 500, 'product-price--green' : cellInfo.data.basePrice < 500 }">
              {{cellInfo.value | formatCurrency }}
            </div>
          </div>

@@ -1,9 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
 .dx-datagrid {
   cursor: pointer;
-}
-.dx-header-row {
-  /*background-color: #b6e1f8;*/
 }
 .dx-datagrid-borders > .dx-datagrid-headers {
   color:white;

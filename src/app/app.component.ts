@@ -8,7 +8,7 @@ import {ProductListComponent} from "./components/product-list/product-list.compo
   standalone: true,
   imports: [RouterOutlet, DxButtonModule, ProductListComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'products-offer';
