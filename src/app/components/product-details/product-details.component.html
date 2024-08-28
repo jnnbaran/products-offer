@@ -17,71 +17,12 @@
 
       <div class="separate-line"></div>
 
-
-
-
-    <div style=" margin-top: 50px; font-size: 16px; line-height:30px">{{selectedProduct?.description}}</div>
-    <div style="padding-top: 30px; display: flex">
-      <ng-template  [ngIf]="dataSource">
-        <dx-accordion
-          [dataSource]="dataSource"
-          [collapsible]="true"
-          [animationDuration]="450"
-          [selectedItems]="[]"
-          width="350px"
-          itemTemplate="item"
-          itemTitleTemplate="WYŚWIETL DOSTĘPNE WARIANTY" >
-          <div *dxTemplate="let variant of 'item'">
-            <li *ngFor="let variant of selectedProduct?.variants; index as i;">
-              <span style="color: darkred">{{variant.variantName}} </span>  | {{variant.maxNumberOfUsers}} użytkowników
-            </li>
-          </div>
-        </dx-accordion>
-      </ng-template>
-      <ng-template [ngIf]="packetSource">
-        <dx-accordion
-          [dataSource]="packetSource"
-          [collapsible]="true"
-          [selectedItems]="[]"
-          [animationDuration]="450"
-          width="350px"
-          itemTemplate="item"
-          itemTitleTemplate="WYŚWIETL DOSTĘPNE PAKIETY" >
-          <div *dxTemplate="let variant of 'item'">
-            <li *ngFor="let packet of selectedProduct?.packets; index as i;" style="color: darkred">
-              {{packet.packetName}}
-            </li>
-          </div>
-        </dx-accordion>
-      </ng-template >
-      <ng-template [ngIf]="versionSource">
-        <dx-accordion
-          [dataSource]="versionSource"
-          [collapsible]="true"
-          [animationDuration]="450"
-          [selectedItems]="[]"
-          width="350px"
-          itemTemplate="item"
-          itemTitleTemplate="WYŚWIETL DOSTĘPNE WERSJE" >
-          <div *dxTemplate="let siema of 'item'">
-            <li *ngFor="let variant of selectedProduct?.versions; index as i;">
-              <span style="color: darkred"> {{variant.versionNumber}} </span> | {{variant.releaseDate | date}}
-            </li>
-          </div>
-        </dx-accordion>
-      </ng-template>
-    </div>
-
-    <div *ngIf="selectedProduct?.eduLicenseDescription" class="licencja"> <i class="dx-icon-info" style="color: #b90707; padding-right: 10px">
-       </i> {{selectedProduct?.eduLicenseDescription}}
-    </div>
+    <app-product-description [selectedProduct]="selectedProduct"/>
 
     <app-operating-system-details [operatingSystem]="selectedProduct?.operatingSystem" />
 
     <div *ngIf="selectedProduct?.requiredProducts" >
       <h6>WYMAGANE PRODUKTY</h6>
-      <p *ngIf="isLoading">laduje laduje i laduje</p>
-
       <app-products-cards
         [products]="listOfProducts">
       </app-products-cards>

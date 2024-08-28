@@ -50,12 +50,6 @@ color:white;
 .variants{
 
 }
-.licencja {
-  display: flex;
-  padding: 15px;
-  padding-left: 0px;
-
-}
 
 .product {
   grid-column-end: span 4;
