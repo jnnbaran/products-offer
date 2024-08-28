@@ -8,7 +8,6 @@ import {Product} from "./types/product";
 })
 export class ProductsService {
   private apiUrl = 'https://wpmyaccountapi.assecobs.pl/api/products'
-  loadingStateChange = new Subject<boolean>();
 
   constructor(private http: HttpClient) { }
 
